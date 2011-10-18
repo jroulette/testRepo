@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>VOD Detail</title>
+
+        <!-- css -->
+        <link href="css/global.css" rel="stylesheet" type="text/css" />
+        <link href="css/branding_starz.css" rel="stylesheet" type="text/css" />
+        <link href="css/wheel.css" rel="stylesheet" type="text/css" />
+        <link href="css/overlay-apple.css" rel="stylesheet" type="text/css" />
+        <link href="css/jquery.alerts.css" rel="stylesheet" type="text/css" />
+
+        <link href='http://fonts.googleapis.com/css?family=Limelight|Hammersmith+One|Oswald|Lato|Gravitas+One' rel='stylesheet' type='text/css' />
+
+
+        <!-- weblclient functions -->
+        <script src="scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+        <script src="scripts/details.js" type="text/javascript"></script>
+        <script src="scripts/webclient.js" type="text/javascript"></script>
+        <script src="scripts/clientactions.js" type="text/javascript"></script>
+        <script src="scripts/wheel.js" type="text/javascript"></script>
+        <script src="scripts/account.js" type="text/javascript"></script>
+
+        <!-- jquery dependencies -->
+        <script src="scripts/jquery.ui.draggable.js" type="text/javascript"></script>
+
+        <!-- core files (plugins) -->
+        <script src="scripts/jquery.tools.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery.alerts.js" type="text/javascript"></script>
+        <!--<script src="scripts/text-overflow-ellipsis.js" type="text/javascript"></script>-->
+
+        <!-- sims library --->
+        <script src="scripts/simlib-src/simlib-general.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-config.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-objprototype.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-scbp.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-sctp.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-ssap.js" type="text/javascript"></script>
+
+        
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="brand_background"></div>
+            <div class="navsection">
+                <div class="logo"><a href="details.html">
+                        <img src="images/img_logo.png" width="300" height="90" border="0" alt="Acme MediaVision" /></a>
+                </div>
+                <div class="contentsection">
+                    <div class="navrow1">
+                        <!--                    <ul>
+                                                <li><a href="movies.html">Movies</a></li>
+                                                <li><a href="#">TV Series</a></li>
+                                                <li><a href="#">Networks</a></li>
+                                                <li><a href="categories.html">Categories</a></li>
+                                            </ul>-->
+                    </div>
+                    <div class="search">
+                        <div class="search_label">search</div>
+                        <div class="search_field">
+                            <input type="text" name="search" id="moviesearch" style="width: 240px;"></input>
+                        </div>
+                    </div>
+
+                    <div class="navrow2">
+                        <!--- welcome username --->
+                        <div class="welcomeuser" id="welcome">Welcome </div>
+
+                        <!--- global nav --->
+                        <ul>
+                            <li><a href="details_starz.html" class="grayButton" id="detailhome">home</a></li>
+                            <li><a onclick="displayFavorites()" class="grayButton">favorites</a></li>
+                            <li><a href="account.html" class="grayButton" id="">account</a></li>
+                            <li><a onclick="killCookies()" id="logout_button" class="grayButton">logout</a></li>
+                            <!--<li><a onclick="testPostAccount()" id="logout_button" class="grayButton">test post</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="pagination">
+                        <div id="total_assets" class="total_assets"></div>
+                        <div id="see_all" class="h3 hide" onclick="goGrid()">see all &gt;</div>
+                        <div id="grid_scrollable_nav"><span id="grid_nav_prev">&lt; prev</span><span>&nbsp;&nbsp;</span><span id="grid_nav_next">next &gt;</span></div>
+                    </div>
+                    <div class="breadcrumb">
+                        <div id="breadcrumb" class="h3"><a href="#" onclick="goHome()">Home</a></div>
+                    </div>
+                    <div id="brand_category_logo"></div>
+                </div>
+            </div>
+
+
+
+            <!-- CONTENT WHEEL STARTS HERE  -->
+            <div id="detail">
+                <div id="main_scrollable" class="scrollable">
+                    <div id="scrollable_items" class="items">
+                    </div>
+                </div>
+
+                <!--<div class="wheel_fade"></div>-->
+                <div class="wheel_nav">
+
+                    <div class="wheel_nav_center">
+                        <button id="wheel_nav_leftpage" class="movepage"></button>
+                        <button id="wheel_nav_left"></button>
+                        <button id="wheel_nav_right"></button>
+                        <button id="wheel_nav_rightpage" class="movepage"></button>
+                    </div>
+                </div>
+                <div class="wheel_fade"></div>
+                
+
+
+                <!--      BEGIN ASSET DETAILS      -->
+                <div class="asset_detail" style="display: none;">
+
+                    <!-- LEFT GUTTER AD DISPLAY -->
+                    <div class="gutter" id="ad_display"></div>
+
+                    <div class="asset_wrapper" id="asset_wrapper" data-assetid="">
+                        <div id="brand_asset_logo"></div>
+                        <div id="asset_title" class="title"></div>
+                        <div id="asset_year" class="year"></div>
+                        <div id="asset_rating" class="rating"></div>
+                        <div id="asset_duration" class="duration"> </div>
+                        <div class="transaction" id="transaction_buttons">
+                            <div id="transaction_button_div">
+                                <button id="transaction_rent_button" class="blueButton movie_metadata_button">Rent</button>
+                                <button rel="#play" id="transaction_play_button" class="blueButton movie_metadata_button">Play</button>
+                            </div>
+                            <div><button id="favorites_button" class="blueButton movie_metadata_button">Add to Favorites</button></div>
+                        </div>
+                        <div>
+                            <div id="asset_description" class="synopsis"></div>
+                        </div>
+                        <div id="cast">
+                            <div class="asset_label">cast:</div>
+                            <div id="asset_cast" class="metadata_cast"></div>
+                        </div>
+                        <div id="director">
+                            <div class="asset_label">director:</div>
+                            <div id="asset_director" class="metadata"></div>
+                        </div>
+                        <div id="studio">
+                            <div class="asset_label">studio:</div>
+                            <div id="asset_studio" class="metadata"></div>
+                        </div>
+                        <div id="genre">
+                            <div class="asset_label">genres:</div>
+                            <div id="asset_genre" class="metadata"></div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT GUTTER RECOMMENDATION DISPLAY -->
+                    <div class="gutter" id="recommendations"></div>
+
+                </div>
+            </div>
+            <div id="grid">
+                <a class="prev browse left"></a>
+                <a class="next browse right"></a>
+                <div style="clear:both"></div>
+                <div id="grid_scrollable" class="grid_scrollable">
+                    <div id="grid_scrollable_items" class="grid_scrollable_items">
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDEO OVERLAY DIV CALLED FROM PLAY BUTTON -->
+            <div class="simple_overlay" id="play">
+                <div id="video_details"></div>
+            </div>
+        </div>
+    </body>
+</html>
+

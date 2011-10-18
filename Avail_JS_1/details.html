@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- for ipad: the viewport for ipad is 980 which makes the jquery alert overlay come up short -->
+        <meta name="viewport" content="width=1080" />
+        
+        <title>VOD Detail</title>
+
+		<link href="css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+
+		<!--<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/Widget.js'></script>-->
+        <!-- adding next line for ime -->
+		<!--<script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/API/Plugin.js"></script>-->
+		<!--<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/TVKeyValue.js'></script>-->
+        <!--<script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/IME/ime2.js"></script>-->
+
+		<!-- ime attempt -->
+        <!--
+		<script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+        <script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/API/Plugin.js"></script>
+        <script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+        <script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/Util/Include.js"></script>
+        <script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/Util/Language.js"></script>
+        <script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/Plugin/Define.js"></script>
+        <script language="javascript" type="text/javascript" src="$MANAGER_WIDGET/Common/IME/ime2.js"></script>
+		-->
+		<!-- ime attempt -->
+
+		<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/Widget.js'></script>
+		<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/API/TVKeyValue.js'></script>
+		
+		<script language="javascript" type="text/javascript" src="javascript/main.js"></script>
+
+        <!-- css -->
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <link href="css/global.css" rel="stylesheet" type="text/css" />
+        <link href="css/branding.css" rel="stylesheet" type="text/css" />
+        <link href="css/wheel.css" rel="stylesheet" type="text/css" />
+        <link href="css/overlay-apple.css" rel="stylesheet" type="text/css" />
+        <link href="css/jquery.alerts.css" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Limelight|Hammersmith+One|Oswald|Lato|Gravitas+One' rel='stylesheet' type='text/css' />
+
+        <!-- weblclient functions -->
+        <script src="scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+        <script src="scripts/details.js" type="text/javascript"></script>
+        <script src="scripts/webclient.js" type="text/javascript"></script>
+        <script src="scripts/clientactions.js" type="text/javascript"></script>
+        <script src="scripts/wheel.js" type="text/javascript"></script>
+        <script src="scripts/utils.js" type="text/javascript"></script>
+        <script src="scripts/browser-detect.js" type="text/javascript"></script>
+        <script src="scripts/swfobject.js" type="text/javascript"></script>
+        <script src="scripts/playmovie.js" type="text/javascript"></script>
+
+        <!-- jquery dependencies -->
+        <script src="scripts/jquery.ui.draggable.js" type="text/javascript"></script>
+
+
+        <!-- core files (plugins) -->
+        <script src="scripts/jquery.tools.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery.alerts.js" type="text/javascript"></script>
+        <!--<script src="scripts/text-overflow-ellipsis.js" type="text/javascript"></script>-->
+
+        <!-- sims library -->
+        <script src="scripts/simlib-src/simlib-general.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-config.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-objprototype.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-scbp.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-sctp.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-ssap.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            //swfobject.registerObject("themovie", "10.1.0");
+        </script>
+
+
+    </head>
+	<body onload="Main.onLoad();" onunload="Main.onUnload();">
+		<!-- Dummy anchor as focus for key events -->
+		<a href='javascript:void(0);' id='anchor' onkeydown='Main.MainKeyHandler();'></a>
+
+		<div id="loaderOverlay"></div>
+		<div id="loader"><img src="resource/images/ajax-loader-LG.gif"></div>
+        <script type="text/javascript">
+           // Main.showDetailsLoader();
+        </script>
+
+
+<!-- begin debug -->
+<div id="db-UserAgent"></div>
+<!-- end debug -->
+
+<!--<div id="newBreadCrumbs"></div>-->
+<div id="backOut"></div>
+<div id="windowName"></div>
+<div id="drillIn"></div>
+<div id="tempBC"></div>
+
+        <div id="wrapper">
+            <div id="brand_background"></div>
+            <div class="navsection">
+                <div class="logo"><a onclick="goHome()">
+                        <img src="images/img_logo.png" width="300" height="90" border="0" alt="Acme MediaVision" /></a>
+                </div>
+                <div id="debugheader"></div>
+                <div class="contentsection">
+                    <div class="navrow1">
+                        <!--                    <ul>
+                                                <li><a href="movies.html">Movies</a></li>
+                                                <li><a href="#">TV Series</a></li>
+                                                <li><a href="#">Networks</a></li>
+                                                <li><a href="categories.html">Categories</a></li>
+                                            </ul>-->
+                    </div>
+                    <div class="search">
+                        <div class="search_label">search</div>
+                        <div class="search_field">
+							<input type="text" name="search" id="moviesearch" style="width: 240px;" />
+                        </div>
+                    </div>
+
+                    <div class="navrow2">
+
+                        <!-- welcome username -->
+                        <div class="welcomeuser" id="welcome">Welcome </div>
+
+                        <!-- global nav -->
+                        <ul style="display:none;">
+                            <li><a onclick="goHome()" class="grayButton" id="detailhome">home</a></li>
+                            <li><a onclick="displayFavorites()" class="grayButton">favorites</a></li>
+                            <li><a href="account.html" class="grayButton" id="">account</a></li>
+                            <li><a onclick="killCookies()" id="logout_button" class="grayButton">logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="pagination">
+                        <div id="total_assets" class="total_assets"></div>
+						<!-- hiding links to the grid page for now -->
+                        <span style="display:none;">
+							<div id="see_all" class="h3 hide" onclick="goGrid()" style="display:none;">see all &gt;</div>
+						</span>
+							<div id="grid_scrollable_nav" style="display:none;"><span id="grid_nav_prev">&lt; prev</span><span>&nbsp;&nbsp;</span><span id="grid_nav_next">next &gt;</span></div>
+						
+
+                    </div>
+                    <div class="breadcrumb">
+                        <a href="#" onclick="goHome()">Home</a><span id="breadcrumb"></span>
+                    </div>
+                    <div class="newBreadcrumbs"><span id="newbreadcrumb"></span>
+                    </div>
+                    <div id="brand_category_logo"></div>
+                </div>
+            </div>
+
+
+
+            <!-- CONTENT WHEEL STARTS HERE  -->
+            <div id="detail">
+                <div id="main_scrollable" class="scrollable">
+                    <div id="scrollable_items" class="items">
+                    </div>
+                </div>
+
+
+                <div class="wheel_nav">
+
+                    <div class="wheel_nav_center">
+                        <button id="wheel_nav_leftpage" class="movepage"></button>
+                        <button id="wheel_nav_left"></button>
+                        <button id="wheel_nav_right"></button>
+                        <button id="wheel_nav_rightpage" class="movepage"></button>
+                    </div>
+                </div>
+                <div class="wheel_fade"></div>
+
+
+                <!-- BEGIN ASSET DETAILS -->
+                <div class="asset_detail" id="asset_detail" style="display: none;">
+
+                    <!-- LEFT GUTTER AD DISPLAY -->
+                    <div class="gutter" style="display:none;">
+                        <div class="gutter_bg_left">
+                            <div class="gutter_header">Starring</div>
+                            <div id="contributors_display_table">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="asset_wrapper" id="asset_wrapper">
+                        <div id="brand_asset_logo"></div>
+                        <div id="asset_title" class="title"></div>
+                        <div id="asset_year_label" class="asset_label">Year:</div>
+						<div id="asset_year" class="year"></div>
+                        <div id="asset_rating_label" class="asset_label">Rating:</div>
+						<div id="asset_rating" class="rating"></div>
+                        <div id="asset_duration_label" class="asset_label">Duration:</div>
+						<div id="asset_duration" class="duration"> </div>
+                        <div class="transaction" id="transaction_buttons">
+                            <div id="transaction_button_div">
+                                <button rel="#play" id="transaction_rent_play_button" class="blueButton movie_metadata_button">Rent</button>
+                                <div rel="#play" id="playmovieoverlay" class="hide"></div>
+                                <button rel="#validate_parental_pin_popup" id="validate_parental_pin_overlay_trigger" class="hide"></button>
+                                <button rel="#confirmrentalpopup" id="confirm_rental_overlay_trigger" class="hide"></button>
+                            </div>
+                            <div class="fav_button"><button id="favorites_button" class="blueButton movie_metadata_button">Add to Favorites</button></div>
+                        </div>
+                        <div>
+                            <div id="asset_description" class="synopsis"></div>
+                        </div>
+                        <div id="asset_metadata">
+                            <div id="asset_director_label" class="asset_label">Director:</div>
+                            <div id="asset_studio_label" class="asset_label">Studio:</div>
+                            <div id="asset_genres_label" class="asset_label">Genres:</div>
+                            <div id="director">
+                                <div id="asset_director" class="metadata_value"></div>
+                            </div>
+                            <div id="studio">
+                                <div id="asset_studio" class="metadata_value"></div>
+                            </div>
+                            <div id="genre">
+                                <div id="asset_genre" class="metadata_value"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- RIGHT GUTTER RECOMMENDATION DISPLAY -->
+                    <div class="gutter" style="display:none;">
+                        <div class="gutter_bg_right">
+                            <div class="gutter_header">Recommendations</div>
+                            <div id="recommendations"></div></div>
+                    </div>
+                </div>
+                <!--      END ASSET DETAILS      -->
+
+
+                <!--      BEGIN CATEGORY DETAILS      -->
+                <div id="category_detail" style="display:none;">
+
+                    <!-- LEFT GUTTER AD DISPLAY -->
+                    <div class="gutter" id="left_ad"></div>
+                    <div class="category_asset_wrapper" id="category_asset_wrapper">
+                        <div class="category_asset" id="category_movie"></div>
+                    </div>
+
+                    <!-- RIGHT GUTTER AD DISPLAY -->
+                    <div class="gutter" id="right_ad"></div>
+
+                </div>
+                <!--      END CATEGORY DETAILS      -->
+
+
+            </div>
+            <div id="grid">
+                <a class="prev browse left"></a>
+                <a class="next browse right"></a>
+                <div style="clear:both"></div>
+                <div id="grid_scrollable" class="grid_scrollable">
+                    <div id="grid_scrollable_items" class="grid_scrollable_items">
+                    </div>
+                </div>
+                <div class="grid_base"></div>
+                <div class="wrapper_footer">
+                    <div class="footer_background"></div>
+                </div>
+            </div> 
+
+            <!-- VIDEO OVERLAY DIV CALLED FROM PLAY BUTTON -->
+            <div class="simple_overlay" id="play">
+                <div id="video_details"></div>
+            </div>
+        </div>
+
+		
+		
+        <div class="modal" id="validate_parental_pin_popup">
+            <h2>Enter Parental PIN</h2>
+            <p>
+                This video exceeds your advisory rating levels.
+            </p>
+
+            <form onsubmit="return false;">
+                <div class="pin" id="validate_parental_popup_pins">
+                    Enter PIN
+
+                    <input id="validate_parental_popup_pins_input" type="password" pattern="[0-9]*" maxlength="4" size="4" />
+                </div>
+
+                <br />
+                <button id="validate_parental_pin_popup_submit_button" class="blueButton" type="submit"> Submit </button>
+                <button class="close blueButton"> Cancel </button>
+            </form>
+        </div>
+        <div class="modal" id="confirmrentalpopup">
+            <h2>Confirm Rental</h2>
+            <p>
+                Would you like to purchase <span id="rentmoviename"></span> for $<span id="rentmovieprice"></span>?
+            </p>
+
+            <form onsubmit="return false;">
+                <div class="pin" id="confirm_rental_popup_pins">
+                    Enter PIN
+
+                    <input id="confirm_rental_popup_pins_input" type="password" pattern="[0-9]*" maxlength="4" size="4" />
+                </div>
+
+                <br />
+                <button id="confirmrentalpopup_submit_button" class="blueButton" type="submit"> Purchase </button>
+                <button class="close blueButton"> Cancel </button>
+            </form>
+        </div>
+		<div id="navi_help"></div>
+        <script type="text/javascript">
+            //Main.hideDetailsLoader();
+        </script>
+    </body>
+</html>
+

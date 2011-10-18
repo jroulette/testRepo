@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>VOD Account</title>
+
+        <!-- css -->
+        <link href="css/global.css" rel="stylesheet" type="text/css" />
+        <link href="css/branding.css" rel="stylesheet" type="text/css" />
+        <link href="css/account.css" rel="stylesheet" type="text/css" />
+
+        <!-- weblclient functions -->
+        <script src="scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery.tools.min.js" type="text/javascript"></script>
+        <script src="scripts/browser-detect.js" type="text/javascript"></script>
+        <script src="scripts/account.js" type="text/javascript"></script>
+        <script src="scripts/webclient.js" type="text/javascript"></script>
+        <script src="scripts/utils.js" type="text/javascript"></script>
+        <script src="scripts/clientactions.js" type="text/javascript"></script>
+
+
+        <!-- sims library -->
+        <script src="scripts/simlib-src/simlib-general.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-config.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-objprototype.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-scbp.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-sctp.js" type="text/javascript"></script>
+        <script src="scripts/simlib-src/simlib-ssap.js" type="text/javascript"></script>
+    </head>
+    <body id="body">
+        <div id="wrapper">
+            <div class="navsection">
+                <div class="logo"><a href="details.html">
+                        <img src="images/img_logo.png" width="300" height="90" border="0" alt="Acme MediaVision" /></a>
+                </div>
+                <div class="contentsection">
+                    <div class="navrow1">
+                        <!--                    <ul>
+                                                <li><adetails.html href="movies.html">Movies</a></li>
+                                                <li><a href="#">TV Series</a></li>
+                                                <li><a href="#">Networks</a></li>
+                                                <li><a href="categories.html">Categories</a></li>
+                                            </ul>-->
+                    </div>
+                    <div class="search">
+                        <div class="search_label">search</div>
+                        <div class="search_field">
+                            <input type="text" name="search" id="moviesearch" style="width: 240px;"></input>
+                        </div>
+                    </div>
+
+                    <div class="navrow2">
+                        <!-- welcome username -->
+                        <div class="welcomeuser" id="welcome">Welcome </div>
+
+                        <!-- global nav -->
+                        <ul>
+                            <li><a href="/vodwebclient/details.html" class="grayButton" id="detailhome">home</a></li>
+                            <li><a href="/vodwebclient/details.html?favorites=1" class="grayButton">favorites</a></li>
+                            <li><a href="account.html" class="grayButton" id="">account</a></li>
+                            <li><a onclick="killCookies()" id="logout_button" class="grayButton">logout</a></li>
+                            <!--<li><a href="#" class="grayButton">Option 04</a></li>
+                            <li><a href="#" class="grayButton">Option 05</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="pagination">
+                        <!--                        <div id="total_assets" class="total_assets"></div>
+                                                <div id="see_all" class="h3 hide" onclick="goGrid()">see all &gt;</div>
+                                                <div id="grid_scrollable_nav"><span id="grid_nav_prev">&lt; prev</span><span>&nbsp;&nbsp;</span><span id="grid_nav_next">next &gt;</span>
+                                                </div>-->
+                    </div>
+                    <div class="breadcrumb">
+                        <a href="#" onclick="goHome()">Home</a><span id="breadcrumb"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="account">
+                <ul class="tabs">
+                    <li><a href="#viewinghistory" class="grayButton">Viewing History</a></li>
+                    <li><a href="#parentalsettingspane" class="grayButton">Parental Settings</a></li>
+                    <li><a href="#pinsettings" class="grayButton">PIN Settings</a></li>
+                </ul>
+
+                <!-- tab "panes" -->
+                <div class="panes">
+                    <div id="viewinghistory">
+                        <div id="viewing_history_nav">
+                            <span id="viewing_history_nav_prev">&lt; prev</span>
+                            <span id="viewing_history_nav_next">next &gt;</span>
+                        </div>
+                        <div id="table">
+                            <div class="header row">
+                                <!--                                <div class="cell"></div>
+                                                                <div class="cell">Release</div>
+                                                                <div class="cell">Rating</div>
+                                                                <div class="cell">Length</div>
+                                                                <div class="cell"></div>
+                                                                <div class="cell">Rented</div>-->
+                            </div>
+                            <div id="tablerows">
+                                <!-- history -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="parentalsettingspane" class="div-table inputparent"><!--PARENTAL SETTINGS-->
+                        <div class="div-table-row" id="validateparentalpin" >
+                            <div id="tips_hints_pinvalidate" class="div-table-col-tips_hints">You must enter your Parental PIN to access the Parental Settings</div>
+                            <div class="div-table-col">Enter Parental PIN</div>
+                            <div  class="div-table-col">
+                                <form onsubmit="return false;"><input id="parentalpin"  class="pininput" type="password" pattern="[0-9]*" size="4" maxlength="4" /></form>
+                            </div>
+
+                            <div class="div-table-row">
+                                <div class="div-table-col"></div><div class="div-table-col"></div>
+                                <div class="div-table-col">
+                                    <button id="validateparentalpinbutton" type="submit" class="blueButton" onclick="validateParentalPIN()">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="parentalsettings" class="div-table">
+                            <div class="div-table-row">
+                                <div class="div-table-col-label">Adult Catalog:</div>
+                                <div class="div-table-col" id="show_adult_catalog_container">
+                                    <input type="checkbox" id="show_adult_catalog" />
+                                    <label id="show_adult_catalog_label" for="show_adult_catalog">don't display</label>
+
+                                    <span id="browse_legend_button">&nbsp;</span><span id="browse_legend_descr"> = Parental PIN required to play</span>
+
+                                </div>
+                            </div>
+                            <div id="tvratingsrow">
+                                <div class="div-table-col-label">TV Ratings:</div>
+                                <div class="div-table-col" id="tvratings">
+                                    <div id="tvratinginputs"></div>
+                                    <div id="tvratinglabels"></div>
+                                </div>
+                            </div>
+                            <div id="mpaaratingsrow">
+                                <div class="div-table-col-label">Movie Ratings:</div>
+                                <div class="div-table-col" id="mpaaratings">
+                                    <div id="mpaaratinginputs"></div>
+                                    <div id="mpaaratinglabels"></div>
+                                </div>
+                            </div>
+                            <div id="advisoriesratingsrow">
+                                <div class="div-table-col-label">Content Advisories:</div>
+                                <div class="div-table-col" id="contentadvisories"></div>
+                            </div>
+                            <div class="div-table-caption">
+                                <button onclick="cancelParentalSettings()" class="blueButton">Cancel</button>
+                                <button onclick="saveParentalSettings()" class="blueButton">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="pinentry"> <!-- PIN SETTINGS -->
+                            <div class="div-table inputparent">
+                                <div class="div-table-row">
+                                    <div class="div-table-col-label validatepinlabel" id="validate_pin_label">Enter PIN</div>
+                                    <div class="div-table-col">
+                                        <input id="pin_settings_validate_pin" class="pininput" type="password" pattern="[0-9]*" size="4" maxlength="4" />
+                                    </div>
+                                </div>
+                                <div id="newparentalpincontainer">
+                                    <div class="div-table-row">
+                                        <div class="div-table-col-label">Enter New Parental PIN</div>
+                                        <div class="div-table-col">
+                                            <input id="new_parental_pin" class="pininput" type="password" pattern="[0-9]*" size="4" maxlength="4" />
+                                        </div>
+                                    </div>
+                                    <div class="div-table-row">
+                                        <div class="div-table-col-label">Confirm New Parental PIN</div>
+                                        <div class="div-table-col">
+                                            <input id="confirm_new_parental_pin" class="pininput" type="password" pattern="[0-9]*" size="4" maxlength="4" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="div-table-row">
+                                    <div class="div-table-col-label">Enter New Transactional PIN</div>
+                                    <div class="div-table-col">
+                                        <input id="new_transactional_pin" class="pininput" type="password" pattern="[0-9]*" size="4" maxlength="4" />
+                                    </div>
+                                </div>
+                                <div class="div-table-row">
+                                    <div class="div-table-col-label">Confirm New Transactional PIN</div>
+                                    <div class="div-table-col">
+                                        <input id="confirm_new_transactional_pin" class="pininput" type="password" pattern="[0-9]*" size="4" maxlength="4" />
+                                    </div>
+                                </div>
+                                <div class="div-table-caption">
+                                    <button onclick="cancelNewPin()" class="blueButton">Clear</button>
+                                    <button id="pinentrysave" type="submit" class="blueButton" onclick="saveNewPin()">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><div  class="account_bg_img"></div>
+
+        </div>
+        <div id="footer_wrapper" style="margin-top:-25px;">
+            <div class="footer_grid_base"></div>
+            <div class="footer_background"></div>
+        </div>
+    </body>
+</html>
+

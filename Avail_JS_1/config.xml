@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget>
+	<previewjs></previewjs>
+	<preicon></preicon>
+	<cpname>Avail-TVN 0.8.2</cpname>
+	<cplogo></cplogo>
+	<cpauthjs></cpauthjs>
+	<ver></ver>
+	<mgrver></mgrver>
+	<fullwidget>y</fullwidget>
+	<srcctl>y</srcctl>
+	<ticker>n</ticker>
+	<childlock>n</childlock>
+	<audiomute>n</audiomute>
+	<videomute>n</videomute>
+	<dcont>y</dcont>
+	<type>user</type>
+	<widgetname>Avail-TVN 0.8.2</widgetname>
+	<description></description>
+	<width>960</width>
+	<height>540</height>
+	<author>
+		<name>Float Left Interactive</name>
+		<email>info@floatleftinteractive.com</email>
+		<link>http://www.floatleftinteractive.com</link>
+		<organization>Float Left Interactive</organization>
+	</author>
+	<movie>y</movie>
+	<flashplayer>y</flashplayer>
+	<ListIcon>resource/icon/atv_86x70.png</ListIcon>
+	<BigListIcon>resource/icon/atv_95x78.png</BigListIcon>
+	<ThumbIcon>resource/icon/atv_106x87.png</ThumbIcon>
+	<BigThumbIcon>resource/icon/atv_115x95.png</BigThumbIcon>
+</widget>

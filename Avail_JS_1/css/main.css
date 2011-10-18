@@ -1,0 +1,37 @@
+#db-MacAddr {
+	position:absolute;
+	top:0;
+	left:0;
+	height:20px;
+	width:200px;
+	border:solid 1px #000;
+	background-color:#fff;
+	color:#000;
+	z-index:99;
+	display:none;
+}
+#db-DeviceID {
+	position:absolute;
+	top:20px;
+	left:0;
+	height:20px;
+	width:200px;
+	border:solid 1px #000;
+	background-color:#fff;
+	color:#000;
+	z-index:99;
+	display:none;
+}
+#db-UserAgent {
+	position:absolute;
+	top:40px;
+	left:0;
+	height:20px;
+	width:750px;
+	border:solid 1px #000;
+	background-color:#fff;
+	color:#000;
+	text-align:left;
+	z-index:20;
+	display:none;
+}

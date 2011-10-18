@@ -1,0 +1,55 @@
+/* 
+    Document   : branding
+    Created on : Jul 12, 2011, 3:29:20 PM
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.wheel_fade{
+    background-image: url(../resource/images/img_brand_default_fade_960.png);
+    /*border: 1px dotted gray;*/
+    position:absolute;
+    height: 51px;
+    width: 960px;
+    margin-top: -113px;
+    z-index: -10;
+}
+
+#brand_background {
+    background-image: url(../images/img_brand_default_base.jpg);
+    height: 573px;
+    /*width: 1080px;*/
+    width: 960px;
+    margin-top: 382px;
+    position:absolute;
+    z-index: -1;
+}
+#brand_cp_category {
+    background-image: url(.../images/);
+}
+#brand_cp_category_nav {
+    border:1px pink dotted;
+}
+/*#brand_category_logo {
+    background-image: url(../images/...);
+}*/
+
+
+/*#brand_category_logo {
+    background-image: url(.../images/img_brand_starz_logo_category.png);
+    width: 150px;
+    height: 30px;
+    position: relative;
+    z-index: 10;
+    
+}
+#brand_asset_logo {
+    background-image: url(.../images/img_brand_starz_logo_asset.png);
+    width: 150px;
+    height: 30px;
+    position: relative;
+    z-index: 10;
+
+}*/
+

@@ -1,0 +1,57 @@
+/* the overlayed element */
+.simple_overlay {
+
+    /* must be initially hidden */
+    display:none;
+
+    /* place overlay on top of other elements */
+    z-index:10000;
+
+    /* styling */
+    background-color:#333;
+/*
+	min-width:200px;
+	min-height:200px;
+*/
+	min-width:960px;
+    min-height:540px;
+/*
+	border:1px solid #666;
+    left: 200px;
+*/
+    left: 0px;
+
+    /* CSS3 styling for latest browsers */
+/*
+	-moz-box-shadow:0 0 90px 5px #000;
+    -webkit-box-shadow: 0 0 90px #000;
+
+    -moz-border-radius:24px;
+    -webkit-border-radius:24px;
+*/
+}
+
+/* close button positioned on upper right corner */
+.simple_overlay .close {
+    background-image:url(../images/close.png);
+    position:absolute;
+    right:-15px;
+    top:-15px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
+	display:none;
+}
+
+#video_details {
+    /*padding: 15px 5px;*/
+	min-width:960px;
+    min-height:540px;
+}
+/*
+#video {
+	min-width:960px;
+    min-height:540px;
+}
+*/
+

@@ -1,0 +1,403 @@
+/*---------------- Account ----------------*/
+a {
+    outline:  0;
+}
+
+#account {
+/*  border: red 1px dotted;*/
+    margin-top: -35px;
+    float:left;
+    font-size:12px;
+    font-family:Gill, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left:70px;
+
+}
+#account ul.tabs {
+/*    border: 1px lightsalmon dotted;*/
+    width:870px;
+    margin-left: -10px;
+/*    margin-right: auto;*/
+    
+}
+#account ul.tabs li {
+    display: inline;
+    list-style-type: none;
+}
+#account ul.tabs li a {
+/*    color: blue;*/
+    padding: 3px 10px;
+}
+#account ul.tabs li a:link, #account ul.tabs li a:visited {
+    color: graytext;
+    text-decoration: none;
+}
+#account ul.tabs li a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+#account ul.tabs li a.current {
+    cursor: default;
+    color: #fff;
+    background-color: #369;
+    text-decoration: none;
+}
+#account ul.tabs li a:active {
+    text-decoration: none;
+}
+
+
+
+
+
+.panes .div-table {
+/*    border: 1px orange dotted;*/
+    margin-top: 50px;
+    margin-left:auto;
+    margin-right:auto;
+    display: table;
+}
+.panes .div-table-row {
+/*    border: white 1px dotted;*/
+    display: table-row;
+
+}
+.panes .div-table-col {
+/*    border: blue 1px dotted;*/
+    display: table-cell;
+    padding: 5px;
+}
+.panes .div-table-col-label {
+/*    border: lightskyblue 1px dotted;*/
+    display: table-cell;
+    padding: 5px;
+    text-align: right;
+    color: #000;
+    font-weight: bold;
+}
+.panes .div-table-caption {
+    padding-top: 20px;
+    display: table-caption;
+    caption-side: bottom;
+}
+.panes .validatepinlabel {
+    padding-bottom: 50px;
+}
+
+
+
+/*---------------------- Parental Settings ------------------------*/
+#parentalsettings {
+/*    border: 1px pink dotted;*/
+    display: none;
+}
+#parentalsettingspane .div-table {
+/*    border: 1px black dotted;*/
+    display: table;
+}
+#validateparentalpinbutton {
+    display:table-cell;
+/*    margin-left:300px;*/
+    
+}
+.div-table-col-tips_hints {
+    color: #fff;
+    text-decoration: none;
+    font-size:14px;
+    font-family:Gill, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align:left;
+    padding: 20px;
+    width: 275px;
+    margin-right: 100px;
+}
+
+
+
+
+#tvratingsrow, #mpaaratingsrow, #advisoriesratingsrow {
+/*    border: 1px red dotted;*/
+    display: table-row;
+
+}
+#parentalsettingspane .div-table-col {
+/*    border: 1px red dotted;*/
+    display: table-cell;
+    padding: 5px;
+}
+#parentalsettingspane .div-table-col-label {
+    display: table-cell;
+    padding: 7px 5px 5px 5px;
+    text-align: right;
+    color: #fff;
+/*    font-weight: bold;*/
+    vertical-align: top;
+}
+
+#parentalsettingspane .div-table-caption {
+    padding-top: 20px;
+    display: table-caption;
+    caption-side: bottom;
+}
+#tvratings input, #mpaaratings input {
+    display: none;
+}
+#tvratings label {
+    color: gray;
+    background-color: black;
+    padding: 3px 10px 3px 10px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    float: left;
+    width: 60px;
+}
+#tvratings label:last-of-type {
+    border-right: 1px solid #fff;
+}
+#tvratings label:first-child, #mpaaratings label:first-child {
+    -moz-border-radius: 4px 0px 0px 4px;
+    -webkit-border-radius: 4px 0px 0px 4px;
+    -o-border-radius: 4px 0px 0px 4px;
+}
+#tvratings label:last-child, #mpaaratings label:last-child {
+    -moz-border-radius: 0px 4px 4px 0px;
+    -webkit-border-radius: 0px 4px 4px 0px;
+    -o-border-radius: 0px 4px 4px 0px;
+}
+#contentadvisories label:first-of-type {
+    -moz-border-radius: 4px 0px 0px 0px;
+    -webkit-border-radius: 4px 0px 0px 0px;
+    -o-border-radius: 4px 0px 0px 0px;
+}
+#contentadvisories div:first-of-type {
+    -moz-border-radius: 0px 4px 0px 0px;
+    -webkit-border-radius: 0px 4px 0px 0px;
+    -o-border-radius: 0px 4px 0px 0px;
+}
+#contentadvisories label:last-of-type {
+    -moz-border-radius: 0px 0px 0px 4px;
+    -webkit-border-radius: 0px 0px 0px 4px;
+    -o-border-radius: 0px 0px 0px 4px;
+    border-bottom: 1px solid #fff;
+}
+#contentadvisories div:last-of-type {
+    -moz-border-radius: 0px 0px 4px 0px;
+    -webkit-border-radius: 0px 0px 4px 0px;
+    -o-border-radius: 0px 0px 4px 0px;
+    border-bottom: 1px solid #fff;
+}
+
+#viewinghistory img {
+    width: 120px;
+}
+
+
+
+#mpaaratings label {
+    color: gray;
+    background-color: black;
+    padding: 3px 10px 3px 10px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    float: left;
+    width: 60px;
+}
+#mpaaratings label:last-of-type {
+    border-right: 1px solid #fff;
+}
+#contentadvisories label {
+    color: white;
+    background-color: green;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    cursor: pointer;
+    float: left;
+    width: 100px;
+}
+.clear {
+    clear: both;
+}
+#contentadvisories .caname {
+    width: 250px;
+    color: white;
+    background-color: green;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+    float: left;
+}
+#contentadvisories input {
+    display: none;
+}
+
+#show_adult_catalog_container {
+    text-align: left;
+}
+#show_adult_catalog_container label {
+    color: white;
+    background-color: black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    font-weight: normal;
+    text-align: center;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -o-border-radius: 4px 4px 4px 4px;
+}
+#show_adult_catalog {
+    display: none;
+}
+
+#tvratinglabels label, #mpaaratinglabels label, #contentadvisories label, #contentadvisories div {
+    font-weight: normal;
+}
+#browse_legend_button {
+    margin-left: 100px;
+    margin-right: 5px;
+    color: white;
+    background-color: #D4A017;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid #fff;
+    float: left;
+    width: 80px;
+    font-weight: normal;
+    text-align: center;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -o-border-radius: 4px 4px 4px 4px;
+}
+#browse_legend_descr {
+    display: block;
+    padding: 4px 5px 5px 5px;
+    vertical-align: top;
+}
+
+/*---------------------- Viewing History ------------------------*/
+
+#viewinghistory #table {
+/*    border: 1px red dotted;*/
+    width:940px;
+    display: table;
+    float: left;
+}
+#viewinghistory #table .row {
+    display: table-row;
+}
+#viewinghistory #table .cell {
+/*    border: 1px lawngreen dotted;*/
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px;
+}
+#viewinghistory #table .header .cell {
+    color: #fff;
+}
+#viewinghistory #table .header .bigtitle {
+    font-size: 16px;
+}
+#viewinghistory #table #tablerows {
+    display: table-row-group;
+}
+#viewinghistory #table .name {
+/*    border: 1px lawngreen dotted;*/
+    width: 330px;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    color: #fff;
+    
+}
+#viewinghistory #table .advisory {
+    text-transform: uppercase;
+}
+
+/*#pintypeselector label {*/
+    /*cursor: pointer;*/
+/*}*/
+/*#pintypeselector input {*/
+    /*display: none;*/
+/*}*/
+/*input[type="radio"]:checked+label {*/
+    /*color: #fff;*/
+/*}*/
+
+.viewinghistoryplayrentbutton {
+    width: 110px;
+}
+#viewinghistory #tablerows a:link {
+    text-decoration: none;
+    color: #000;
+}
+#viewinghistory #tablerows a:visited {
+    text-decoration: none;
+    color: #000;
+}
+#viewinghistory #tablerows a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+#viewinghistory #tablerows a:active {
+    text-decoration: none;
+    color: #000;
+}
+#viewinghistory #tablerows a img {
+    border: none;
+}
+
+
+#viewing_history_nav {
+    color: #444;
+    float: left;
+    margin-left: 835px;
+    margin-top: -15px;
+}
+#viewing_history_nav .active:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+/*---------------------- PIN Settings ------------------------*/
+#pinentry input[type="password"], #validateparentalpin input[type="password"] {
+
+}
+#newparentalpincontainer {
+    display: table-row-group;
+}
+#confirm_new_parental_pin {
+    margin-bottom: 20px;
+}
+.pininput {
+    letter-spacing: 5px;
+    border: 1px white solid;
+    background-color: #797979;
+}
+
+
+/*-----------------------PIN Background Image----------------------*/
+
+.account_bg_img {
+    
+    background-image:url(../images/img_familytv_retro.png);
+    margin:160px 0 0 58px;
+    height:800px;
+    width:850px;
+    opacity:0.2;
+    position:absolute;
+    z-index:-1;
+    background-repeat: no-repeat;
+}

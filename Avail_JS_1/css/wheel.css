@@ -1,0 +1,352 @@
+/*
+	root element for the scrollable.
+	when scrolling occurs this element stays still.
+*/
+/*.wheel {*/
+
+/* required settings */
+/*position:relative;*/
+/*overflow:hidden;*/
+/*width: 920px;*/
+/*height:200px;*/
+/*}*/
+
+.scrollable {
+	/*border: yellow 1px dotted;*/
+    position:relative;
+    height: 295px;
+    width: 925px;
+	left:0px;
+    margin-top: -5px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accommodate scrollable items.
+	it's enough that you set width and height for the root element and
+	not for this element.
+*/
+.scrollable .items {
+    /* this cannot be too large */
+    width: 20000em;
+    position: absolute;
+    top: 30px;
+}
+
+/*
+	a single item. must be floated in horizontal scrolling.
+	typically, this element is the one that *you* will style
+	the most.
+*/
+.items div {
+    float:left;
+}
+
+.items div.scrollable_item {
+    font-size:12px;
+    color: #fff;
+    text-align: center;
+    margin: 0px 10px 1px 2px;
+    width: 114px;
+    height: 236px;
+    /*    overflow: hidden;*/
+    cursor: pointer;
+	z-index:0;
+}
+
+.items div.scrollable_item_blank {
+    cursor: auto;
+    
+}
+
+.items div.scrollable_item img {
+/*    -moz-box-shadow: 2px 2px 5px #000;
+    -webkit-box-shadow: 2px 2px 5px #000;
+    box-shadow: 2px 2px 5px #000;*/
+    /*    border: 1px solid #797979;*/
+	z-index: 99;
+}
+
+
+.items div.scrollable_item_last {
+    /*margin: 0px 0px 12px 2px;*/
+    /*padding-right: 16px;*/
+    /*background: url(/vodwebclient/images/asset-end-divider.png) no-repeat;*/
+    /*background-position: 120px 50px;*/
+}
+
+.items div.scrollable_item_categories {
+    margin-right: 10px;
+}
+
+.scrollable_item_center {
+    /*font-size: 14px !important;*/
+    /*background: url(/vodwebclient/images/asset-center.png) no-repeat;*/
+    /*background-position: -20px 0px;*/
+    /*color: blue !important;*/
+    width: 160px !important;
+    height: 250px !important;
+    margin-top: -28px !important;
+	z-index: 10;
+}
+
+.scrollable_item_center img {
+    /*background: url(/vodwebclient/images/asset-center.png) no-repeat;*/
+    /*background-position: -20px 0px;*/
+    /*color: red !important;*/
+    border: white 1px solid;
+    width: 150px;
+    height: 250px;
+    -moz-box-shadow: 5px 5px 10px #000;
+    -webkit-box-shadow: 5px 5px 10px #000;
+    box-shadow: 5px 5px 10px #000;
+    position: relative;
+    z-index: 99;
+}
+
+.scrollable_item_center .movie-title {
+    font-size: 1.25em;
+    width: 165px;
+}
+
+.wheel_nav {
+    /*border: 1px dotted lightblue;*/
+    position: absolute;
+    height: 30px;
+    width: 925px;
+    margin-top: -60px;
+    margin-left: 74px;
+    margin-right: auto;
+    display: none;
+
+}
+
+.wheel_nav_center {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 366px;
+	display:none;
+}
+
+#wheel_nav_leftpage {
+    background: url(/vodwebclient/images/btn_scroller_01.png) no-repeat;
+    height: 27px;
+    background-position: 0px 0px;
+    width: 49px;
+    float: left;
+    display: block;
+    border: none;
+}
+.wheel_nav_leftpage_hover {
+    background-position: -0px -27px !important;
+    cursor: pointer;
+    box-shadow: 0 0 10px #cfeafc;
+}
+#wheel_nav_left {
+    /*    border: 1px dotted lightblue;*/
+    background: url(/vodwebclient/images/btn_scroller_01.png) no-repeat;
+    height: 27px;
+    background-position: -49px 0px;
+    width: 30px;
+    float: left;
+    display: block;
+    border: none;
+
+}
+.wheel_nav_left_hover {
+    background-position: -49px -27px !important;
+    cursor: pointer;
+    box-shadow: 0 0 10px #cfeafc;
+}
+#wheel_nav_right {
+    background: url(/vodwebclient/images/btn_scroller_01.png) no-repeat;
+    height: 27px;
+    background-position: -79px 0px;
+    width: 30px;
+    float: left;
+    display: block;
+    border: none;
+    margin-left: 190px;
+}
+.wheel_nav_right_hover {
+    background-position: -79px -27px !important;
+    cursor: pointer;
+    box-shadow: 0 0 10px #cfeafc;
+}
+#wheel_nav_rightpage {
+    background: url(/vodwebclient/images/btn_scroller_01.png) no-repeat;
+    height: 27px;
+    background-position: -109px 0px;
+    width: 49px;
+    float: left;
+    display: block;
+    border: none;
+}
+.wheel_nav_rightpage_hover {
+    background-position: -109px -27px !important;
+    cursor: pointer;
+    box-shadow: 0 0 10px #cfeafc;
+}
+
+
+/*################## Detail Tooltip ##################*/
+/*.detail_wheel_tooltip {image carousel
+
+    display: none;
+    padding: 20px;
+    width: 200px;
+    font-family: Gill,Helvetica,sans-serif;
+    font-size: 11px;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    position: absolute;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    -moz-box-shadow: 5px 5px 10px #000;
+    -webkit-box-shadow: 5px 5px 10px #000;
+    box-shadow: 5px 5px 10px #000;
+}
+.detail_wheel_tooltip .tooltiptitle {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.detail_wheel_tooltip .tooltipdescr {
+    margin-top: 15px;
+    text-align: left;
+}
+.detail_wheel_tooltip .tooltiplast {
+    margin-top: 15px;
+    text-align: left;
+}*/
+
+
+/*################## Grid ##################*/
+#grid_scrollable {
+/*    border: white 1px dotted;*/
+    position:relative;
+    height: 640px;
+    width: 920px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accommodate scrollable items.
+	it's enough that you set width and height for the root element and
+	not for this element.
+*/
+#grid_scrollable .grid_scrollable_items {
+    /* this cannot be too large */
+    width:20000em;
+    position:absolute;
+}
+
+/*
+	a single item. must be floated in horizontal scrolling.
+	typically, this element is the one that *you* will style
+	the most.
+*/
+div.grid_scrollable_items div.grid_scrollable_item {
+    float:left;
+    font-size:12px;
+    text-align: center;
+    margin: 0px 16px 12px 2px;
+    width: 114px;
+    height: 186px;
+    overflow: hidden;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+.grid_page {
+    float:left;
+    width: 930px;
+}
+
+/*################## Grid Tooltip ##################*/
+.tooltip {
+    border: 1px solid #fff;
+    display: none;
+    /*height: 250px;*/
+    padding: 20px;
+    width: 200px;
+    font-family: Gill,Helvetica,sans-serif;
+    font-size: 11px;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -o-border-radius: 8px;
+
+    -moz-box-shadow: 8px 8px 15px #000;
+    -webkit-box-shadow: 8px 8px 15px #000;
+    box-shadow: 8px 8px 15px #000;
+}
+.tooltip .tooltiptitle {
+    font-weight: bold;
+    font-size: 14px;
+    padding-bottom:10px;
+}
+.tooltip .tooltipbutton {
+    moz-box-shadow:inset 0px 1px 0px 0px #bac9e8;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #bac9e8;
+    box-shadow:inset 0px 1px 0px 0px #bac9e8;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.15, #53a2f2), color-stop(0.5, #16599C) );
+    background:-moz-linear-gradient( center top, #53a2f2 15%, #16599C 50% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#53a2f2', endColorstr='#16599C');
+    background-color:#53a2f2;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #4a5866;
+    display:inline-block;
+    margin: 3px;
+    color:#ffffff;
+    font-family:Gill, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    padding:4px 15px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #2f679e;
+}
+.tooltipbutton:hover {
+    box-shadow: 0 0 8px #cfeafc;
+    
+}
+.tooltipbutton:active {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.2, #16599C), color-stop(1, #53a2f2) );
+    background:-moz-linear-gradient( center top, #16599C 20%, #53a2f2 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#16599C', endColorstr='#53a2f2');
+    background-color:#16599C;
+    top:2px;
+}
+.tooltip .tooltipimagecontainer {
+    height:120px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom:10px;
+}
+.tooltip .tooltipdescr {
+    margin-top: 15px;
+    text-align: left;
+}
+.tooltip .tooltiplast {
+    margin-top: 15px;
+    text-align: left;
+}
+
