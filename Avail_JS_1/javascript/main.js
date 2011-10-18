@@ -6,7 +6,7 @@ var tvKey = new Common.API.TVKeyValue();
 //var NetworkPlugin = document.getElementById( "pluginObjectNetwork" );
 
 //keypad2
-//var ime = null;
+var ime = null;
 //keypad2
 
 
@@ -117,7 +117,7 @@ Main.onLoad = function()
 	document.getElementById("anchor").focus();
 
 	//keypad2
-	//keyc = new Common.API.TVKeyValue();
+	keyc = new Common.API.TVKeyValue();
 	//keypad2
 
     //ime attempt
@@ -142,7 +142,7 @@ Main.onLoad = function()
 	
 	
 	//keypad2
-	/*
+	
 	var s = this.getScriptName();
 	if(s=='details.html'){
 		ime = new IMEShell("moviesearch", ime_init_text, "en");
@@ -150,7 +150,7 @@ Main.onLoad = function()
 			alert("object for IMEShell create failed", 3);
 		}
 	}
-	*/
+	
 	//keypad2
 
 	
@@ -170,7 +170,7 @@ Main.onLoad = function()
 }
 
 //Keypad2
-/*
+
 function ime_init_text(imeobj){
 		
 	//keypad x,y position
@@ -205,7 +205,7 @@ function textobjKeyFunc(keyCode){
 		
 	}
 }
-*/
+
 	//keypad2
 
 
@@ -289,7 +289,10 @@ Main.MainKeyHandler = function()
 			
 		case 21 :	//Yellow 'C' key
 			
-			$('#moviesearch').focus();
+			////$('#moviesearch').focus();
+			//$('#moviesearch').attr('value', 'ca');
+			//alert($('#moviesearch').val());
+			//searchFilms();
 			break;
 			
 		case 22 :	//Blue 'D' key
